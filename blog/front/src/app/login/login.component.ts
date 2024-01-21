@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ModalService } from '../modal.service';
+import { AuthService } from '../auth.service';
+import { NgForm } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,25 @@ import { ModalService } from '../modal.service';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  constructor(public modalService: ModalService) {}
+  constructor(
+    public modalService: ModalService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
-  onSubmit() {}
+  onLoginSubmit(form: NgForm) {
+    console.log(form.value);
+    this.authService.login(form.value).subscribe({
+      next: (response) => {
+        console.log('Login successful:', response);
+        this.router.navigate(['/dashboard']);
+        this.hideLoginModal();
+      },
+      error: (error) => {
+        console.error('Login failed:', error);
+      },
+    });
+  }
   hideLoginModal() {
     this.modalService.hideModal();
   }

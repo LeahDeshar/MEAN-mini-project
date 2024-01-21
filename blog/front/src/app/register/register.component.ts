@@ -10,7 +10,7 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent {
   registrationForm: any;
-  user = { username: '', email: '', password: '' };
+  user = { name: '', email: '', password: '' };
 
   constructor(
     public modalService: ModalService,
@@ -18,10 +18,7 @@ export class RegisterComponent {
   ) {}
 
   onSubmit(form: NgForm) {
-    console.log(form.value);
-  }
-  register() {
-    this.authService.register(this.user).subscribe({
+    this.authService.register(form.value).subscribe({
       next: (response) => {
         console.log('Registration successful:', response);
       },
@@ -30,6 +27,16 @@ export class RegisterComponent {
       },
     });
   }
+  // register(form: NgForm) {
+  //   this.authService.register(this.user).subscribe({
+  //     next: (response) => {
+  //       console.log('Registration successful:', response);
+  //     },
+  //     error: (error) => {
+  //       console.error('Registration failed:', error);
+  //     },
+  //   });
+  // }
 
   hideRegisterModal() {
     this.modalService.hideRegisterModal();
