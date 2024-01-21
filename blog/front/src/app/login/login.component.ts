@@ -9,6 +9,7 @@ import { ModalService } from '../modal.service';
 export class LoginComponent {
   constructor(public modalService: ModalService) {}
 
+  onSubmit() {}
   hideLoginModal() {
     this.modalService.hideModal();
   }

@@ -13,7 +13,6 @@ export class AppComponent {
     this.modalService.showModal();
   }
   openRegisterModal() {
-    // Assuming you have a method to show the registration modal in your ModalService
     this.modalService.showRegisterModal();
   }
 }
