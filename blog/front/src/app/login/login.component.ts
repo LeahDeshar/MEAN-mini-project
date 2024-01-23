@@ -21,6 +21,8 @@ export class LoginComponent {
     this.authService.login(form.value).subscribe({
       next: (response) => {
         console.log('Login successful:', response);
+        this.authService.setToken(response.token);
+        this.authService.setUser(JSON.stringify(response.user));
         this.router.navigate(['/dashboard']);
         this.hideLoginModal();
       },

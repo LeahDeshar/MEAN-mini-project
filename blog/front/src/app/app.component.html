@@ -50,23 +50,28 @@
         >Lorem</a
       >
     </div>
-    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a
-        href="#"
-        class="text-sm font-semibold leading-6 text-gray-900 mr-5"
-        (click)="openLoginModal()"
-        >Log in <span aria-hidden="true">&rarr;</span></a
-      >
-      <a
-        href="#"
-        class="text-sm font-semibold leading-6 text-gray-900"
-        (click)="openRegisterModal()"
-        >Sign up<span aria-hidden="true">&rarr;</span></a
-      >
+    <div
+      class="hidden lg:flex lg:flex-1 lg:justify-end"
+      *ngIf="this.authService.isLoggedIn(); else contentB"
+    >
+      <button (click)="logout()">logout</button>
     </div>
+    <ng-template #contentB>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <a
+          class="text-sm font-semibold leading-6 text-gray-900 mr-5"
+          (click)="openLoginModal()"
+          >Log in <span aria-hidden="true">&rarr;</span></a
+        >
+        <a
+          class="text-sm font-semibold leading-6 text-gray-900"
+          (click)="openRegisterModal()"
+          >Sign up<span aria-hidden="true">&rarr;</span></a
+        >
+      </div>
+    </ng-template>
   </nav>
 </header>
-
 <app-login *ngIf="modalService.showModal$ | async"></app-login>
 <app-register *ngIf="modalService.showRegisterModal$ | async"></app-register>
 

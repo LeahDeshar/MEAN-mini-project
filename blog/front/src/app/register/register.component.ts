@@ -21,22 +21,13 @@ export class RegisterComponent {
     this.authService.register(form.value).subscribe({
       next: (response) => {
         console.log('Registration successful:', response);
+        this.openLoginModal();
       },
       error: (error) => {
         console.error('Registration failed:', error);
       },
     });
   }
-  // register(form: NgForm) {
-  //   this.authService.register(this.user).subscribe({
-  //     next: (response) => {
-  //       console.log('Registration successful:', response);
-  //     },
-  //     error: (error) => {
-  //       console.error('Registration failed:', error);
-  //     },
-  //   });
-  // }
 
   hideRegisterModal() {
     this.modalService.hideRegisterModal();
