@@ -15,10 +15,15 @@ export class AppComponent {
     public authService: AuthService
   ) {
     // this.profileImage = this.authService.getUser();
-    console.log(this.authService.getUser());
+    // console.log(this.authService.getUser());
+
+    console.log(this.profileImage);
   }
 
   profileImage: any;
+  getUserImage() {
+    return JSON.parse(this.authService.getUser()).profilePic.url;
+  }
   openLoginModal() {
     this.modalService.showModal();
   }

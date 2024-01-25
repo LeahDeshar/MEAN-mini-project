@@ -35,8 +35,8 @@ export class AuthService {
     localStorage.removeItem('user');
   }
 
-  setUser(token: string): void {
-    localStorage.setItem('user', token);
+  setUser(user: string): void {
+    localStorage.setItem('user', JSON.parse(user));
   }
 
   getUser(): any {

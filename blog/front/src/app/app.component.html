@@ -54,6 +54,7 @@
       class="hidden lg:flex lg:flex-1 lg:justify-end"
       *ngIf="this.authService.isLoggedIn(); else contentB"
     >
+      <img src="this.profileImage" />
       <button (click)="logout()">logout</button>
     </div>
     <ng-template #contentB>
