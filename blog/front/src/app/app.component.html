@@ -52,9 +52,9 @@
     </div>
     <div
       class="hidden lg:flex lg:flex-1 lg:justify-end"
-      *ngIf="this.authService.isLoggedIn(); else contentB"
+      *ngIf="checkLogin(); else contentB"
     >
-      <img src="this.profileImage" />
+      <img src="this.user" />
       <button (click)="logout()">logout</button>
     </div>
     <ng-template #contentB>
@@ -73,7 +73,15 @@
     </ng-template>
   </nav>
 </header>
+
 <app-login *ngIf="modalService.showModal$ | async"></app-login>
 <app-register *ngIf="modalService.showRegisterModal$ | async"></app-register>
+
+<div>
+  {{ this.authService.user?.email }}
+  {{ this.authService.user?.name }}
+  <img src="this.authService.user.profilePic.url" />
+  {{ this.authService.user?.profilePic?.url }}
+</div>
 
 <router-outlet></router-outlet>

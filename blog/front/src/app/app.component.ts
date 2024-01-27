@@ -17,12 +17,12 @@ export class AppComponent {
     // this.profileImage = this.authService.getUser();
     // console.log(this.authService.getUser());
 
-    console.log(this.profileImage);
+    console.log(this.profileImage, 'this');
   }
 
   profileImage: any;
   getUserImage() {
-    return JSON.parse(this.authService.getUser()).profilePic.url;
+    return JSON.parse(this.authService.getUser());
   }
   openLoginModal() {
     this.modalService.showModal();
@@ -31,6 +31,9 @@ export class AppComponent {
     this.modalService.showRegisterModal();
   }
 
+  checkLogin() {
+    return this.authService.isLoggedIn();
+  }
   navigateDashboard() {
     if (!this.authService.isLoggedIn()) {
       this.modalService.showModal();
