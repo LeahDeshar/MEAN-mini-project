@@ -1,0 +1,7 @@
+<div>
+  <button (click)="storeData()">Store Data</button>
+  <button (click)="getData()">Get Data</button>
+
+  <p *ngIf="storedData">Stored Data: {{ storedData | json }}</p>
+</div>
+<router-outlet></router-outlet>
