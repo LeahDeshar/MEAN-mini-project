@@ -1,0 +1,29 @@
+<div class="relative min-h-screen bg-gray-100 dark:bg-gray-800">
+  <!-- Navbars -->
+  <app-header />
+  <mat-sidenav-container class="dark:bg-gray-800">
+    <!-- <mat-sidenav
+      appScreenSize
+      (screenChange)="computeSize($event)"
+      #sidenav
+      [mode]="screenSignal.currenScreenSize() === 'small' ? 'over' : 'side'"
+      [opened]="sidebarSignal.sidebarOpen()"
+      class="w-64 bg-gray-800 shadow-[0px_8px_10px_-5px_rgb(77_140_228),0px_16px_24px_2px_rgb(17_19_23),0px_6px_30px_5px_rgb(29_32_35_/_72%)]"
+    >
+      <div class="flex flex-col gap-5 justify-center m-5">
+        <button mat-flat-button class="w-full" routerLink="/login">
+          Login
+        </button>
+        <button mat-flat-button class="w-full">Signup</button>
+        <button mat-flat-button class="w-full">Basic</button>
+      </div>
+    </mat-sidenav> -->
+
+    <mat-sidenav-content class="bg-gray-800">
+      <app-counter />
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <!-- Footer -->
+  <app-footer />
+</div>
